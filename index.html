@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ahamed Hamdhan | IT & Security Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--cyan:#00f5ff;--green:#00ff88;--purple:#bf00ff;--orange:#ff6b00;--bg:#030810;--card:#060f1e;--card2:#071525;--text:#c8e6f5;--dim:#3a6a8a;--border:rgba(0,245,255,.15);--grid:rgba(0,245,255,.035)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:none}
+#cur{position:fixed;width:10px;height:10px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 12px var(--cyan),0 0 24px var(--cyan);transition:width .2s,height .2s}
+#cur-r{position:fixed;width:32px;height:32px;border:1px solid rgba(0,245,255,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s ease-out}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.025) 2px,rgba(0,0,0,.025) 4px);pointer-events:none;z-index:1}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:floatorb 9s ease-in-out infinite}
+.o1{width:500px;height:500px;background:rgba(0,245,255,.035);top:-150px;right:-150px}
+.o2{width:350px;height:350px;background:rgba(191,0,255,.03);bottom:50px;left:-100px;animation-delay:3s}
+.o3{width:280px;height:280px;background:rgba(0,255,136,.025);top:40%;right:10%;animation-delay:6s}
+@keyframes floatorb{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(3,8,16,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Orbitron',monospace;font-size:17px;font-weight:900;color:var(--cyan);text-shadow:0 0 12px var(--cyan);letter-spacing:3px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:color .3s,text-shadow .3s}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 8px var(--cyan)}
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;z-index:2;padding:110px 80px 60px}
+.hi{max-width:860px}
+.h-tag{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.h-tag::before{content:'';width:36px;height:1px;background:var(--green);box-shadow:0 0 6px var(--green)}
+.h-name{font-family:'Orbitron',monospace;font-size:clamp(38px,7vw,82px);font-weight:900;line-height:1.0;color:#fff;text-shadow:0 0 40px rgba(0,245,255,.2);margin-bottom:6px;animation:glitch 7s infinite}
+.h-name span{color:var(--cyan);text-shadow:0 0 20px var(--cyan),0 0 50px rgba(0,245,255,.4)}
+@keyframes glitch{0%,88%,100%{clip-path:none;transform:none}89%{clip-path:polygon(0 15%,100% 15%,100% 35%,0 35%);transform:translateX(-4px);color:var(--purple)}90%{clip-path:polygon(0 65%,100% 65%,100% 85%,0 85%);transform:translateX(4px)}91%{clip-path:none;transform:none}}
+.h-role{font-family:'Share Tech Mono',monospace;font-size:clamp(12px,1.8vw,16px);color:var(--dim);letter-spacing:3px;margin-bottom:26px;text-transform:uppercase}
+.h-role .hl{color:var(--orange);text-shadow:0 0 8px var(--orange)}
+.h-desc{font-size:16px;line-height:1.9;color:#6a9ab8;max-width:580px;margin-bottom:40px}
+.h-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-c{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:13px 30px;background:transparent;border:1px solid var(--cyan);color:var(--cyan);text-decoration:none;cursor:none;position:relative;overflow:hidden;transition:color .3s;text-shadow:0 0 8px var(--cyan);box-shadow:0 0 12px rgba(0,245,255,.08),inset 0 0 12px rgba(0,245,255,.04)}
+.btn-c::before{content:'';position:absolute;inset:0;background:var(--cyan);transform:translateX(-101%);transition:transform .3s;z-index:-1}
+.btn-c:hover{color:#000;text-shadow:none}.btn-c:hover::before{transform:translateX(0)}
+.btn-g{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:13px 30px;background:transparent;border:1px solid var(--green);color:var(--green);text-decoration:none;cursor:none;transition:all .3s;text-shadow:0 0 8px var(--green)}
+.btn-g:hover{background:rgba(0,255,136,.08);box-shadow:0 0 20px rgba(0,255,136,.15)}
+.wrap{position:relative;z-index:2;padding:90px 80px;max-width:1120px;margin:0 auto}
+.s-head{display:flex;align-items:center;gap:18px;margin-bottom:52px}
+.s-num{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--cyan);opacity:.55}
+.s-title{font-family:'Orbitron',monospace;font-size:20px;font-weight:700;color:#fff;letter-spacing:3px;text-transform:uppercase}
+.s-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.a-text{font-size:15px;line-height:1.95;color:#6a9ab8}
+.a-text p{margin-bottom:16px}
+.a-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:var(--card);border:1px solid var(--border);padding:22px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.stat::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.stat:hover{border-color:rgba(0,245,255,.35);transform:translateY(-3px)}
+.stat-n{font-family:'Orbitron',monospace;font-size:26px;font-weight:900;color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.stat-l{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.sk-cat{background:var(--card);border:1px solid var(--border);padding:26px;transition:border-color .3s,transform .3s,box-shadow .3s}
+.sk-cat:hover{border-color:rgba(0,245,255,.32);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,245,255,.07)}
+.sk-cat-t{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.sk-cat-t::before{content:'▸';color:var(--cyan)}
+.sk-tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:'Share Tech Mono',monospace;font-size:10px;padding:5px 11px;border:1px solid rgba(0,245,255,.12);color:#5a8aaa;letter-spacing:1px;transition:all .2s;background:rgba(0,245,255,.02)}
+.tag:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,245,255,.06);text-shadow:0 0 6px var(--cyan)}
+.tag.g{border-color:rgba(0,255,136,.18);color:var(--green);background:rgba(0,255,136,.02)}
+.tag.g:hover{border-color:var(--green);background:rgba(0,255,136,.07);text-shadow:0 0 6px var(--green)}
+.tag.o{border-color:rgba(255,107,0,.18);color:var(--orange);background:rgba(255,107,0,.02)}
+.tag.o:hover{border-color:var(--orange);background:rgba(255,107,0,.07)}
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px}
+.pr-card{background:var(--card2);border:1px solid var(--border);padding:30px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.pr-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.pr-card:hover::after{transform:scaleX(1)}
+.pr-card:hover{border-color:rgba(0,245,255,.28);transform:translateY(-5px);box-shadow:0 10px 40px rgba(0,245,255,.06)}
+.pr-num{font-family:'Orbitron',monospace;font-size:10px;color:var(--dim);letter-spacing:2px;margin-bottom:14px}
+.pr-title{font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:4px}
+.pr-type{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.pr-desc{font-size:14px;line-height:1.8;color:#4a7a99;margin-bottom:18px}
+.pr-stack{display:flex;flex-wrap:wrap;gap:5px}
+.st{font-family:'Share Tech Mono',monospace;font-size:9px;padding:4px 9px;background:rgba(0,245,255,.04);border:1px solid rgba(0,245,255,.1);color:var(--dim);letter-spacing:1px}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.cert{background:var(--card);border:1px solid var(--border);padding:26px;display:flex;align-items:flex-start;gap:18px;transition:all .3s;position:relative;overflow:hidden}
+.cert::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);transform:scaleX(0);transition:transform .4s}
+.cert:hover::before{transform:scaleX(1)}
+.cert:hover{border-color:rgba(191,0,255,.28);transform:translateY(-3px);box-shadow:0 8px 30px rgba(191,0,255,.06)}
+.cert-ico{font-size:26px;line-height:1;flex-shrink:0}
+.cert-name{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.cert-iss{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--purple);letter-spacing:1px;text-shadow:0 0 6px var(--purple)}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.ct-text{font-size:15px;line-height:1.9;color:#6a9ab8}
+.ct-text h3{font-family:'Orbitron',monospace;font-size:15px;color:var(--cyan);margin-bottom:16px;letter-spacing:2px}
+.ct-links{display:flex;flex-direction:column;gap:12px}
+.ct-item{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--card);border:1px solid var(--border);text-decoration:none;transition:all .3s;color:var(--text)}
+.ct-item:hover{border-color:var(--cyan);background:rgba(0,245,255,.03);transform:translateX(6px)}
+.ct-lbl{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;display:block}
+.ct-val{font-size:13px;color:var(--cyan);font-weight:600}
+footer{position:relative;z-index:2;text-align:center;padding:36px 48px;border-top:1px solid var(--border);font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:2px}
+.fu{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+  nav{padding:12px 20px}.nav-links{gap:16px}
+  .wrap{padding:70px 24px}#hero{padding:100px 24px 60px}
+  .about-grid,.ct-grid{grid-template-columns:1fr}
+  .h-btns{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur-r"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+
+<nav>
+  <div class="logo">AH_</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hi">
+    <div class="h-tag">System Online — Portfolio v1.0</div>
+    <h1 class="h-name">AHAMED<br/><span>HAMDHAN</span></h1>
+    <p class="h-role"><span class="hl">IT &amp; Security Systems</span> &nbsp;///&nbsp; Web Development</p>
+    <p class="h-desc">Computer Science graduate with hands-on knowledge in networking fundamentals, security systems, and web development. Ready to build, secure, and support IT infrastructure that matters.</p>
+    <div class="h-btns">
+      <a href="#projects" class="btn-c">View Projects</a>
+      <a href="#contact" class="btn-g">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="about">
+  <div class="s-head fu"><span class="s-num">01</span><h2 class="s-title">About</h2><div class="s-line"></div></div>
+  <div class="about-grid">
+    <div class="a-text fu">
+      <p>B.E. Computer Science and Engineering graduate from Coimbatore Institute of Engineering and Technology (2025), based in Thanjavur, Tamil Nadu.</p>
+      <p>Passionate about IT infrastructure and security systems — with foundational knowledge in computer networking (LAN/WAN, IP Addressing, TCP/IP, DHCP, Firewall) and a strong interest in CCTV surveillance, access control, and network security.</p>
+      <p>Also experienced in building web applications using HTML5, CSS3, JavaScript, and SQL-based database systems. Certified in Python for Data Science (NPTEL Elite), Deep Learning (NVIDIA), and Basics of Computer Networks (Great Learning).</p>
+    </div>
+    <div class="a-stats fu">
+      <div class="stat"><div class="stat-n">2025</div><div class="stat-l">Graduated</div></div>
+      <div class="stat"><div class="stat-n">6.96</div><div class="stat-l">CGPA</div></div>
+      <div class="stat"><div class="stat-n">4+</div><div class="stat-l">Projects</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Certifications</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="skills">
+  <div class="s-head fu"><span class="s-num">02</span><h2 class="s-title">Skills</h2><div class="s-line"></div></div>
+  <div class="sk-grid">
+    <div class="sk-cat fu">
+      <div class="sk-cat-t">Networking &amp; Security</div>
+      <div class="sk-tags">
+        <span class="tag g">LAN / WAN</span><span class="tag g">IP Addressing</span><span class="tag g">TCP/IP</span>
+        <span class="tag g">DHCP</span><span class="tag g">MAC Address</span><span class="tag g">Firewall</span>
+        <span class="tag g">Port Numbers</span><span class="tag g">Network Security</span><span class="tag g">TCP vs UDP</span>
+      </div>
+    </div>
+    <div class="sk-cat fu">
+      <div class="sk-cat-t">Programming &amp; Web</div>
+      <div class="sk-tags">
+        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript (Basic)</span>
+        <span class="tag">Python (Basic)</span><span class="tag">SQL (Intermediate)</span><span class="tag">MySQL</span>
+      </div>
+    </div>
+    <div class="sk-cat fu">
+      <div class="sk-cat-t">SQL Expertise</div>
+      <div class="sk-tags">
+        <span class="tag g">JOINs (INNER/LEFT/RIGHT)</span><span class="tag g">GROUP BY + HAVING</span>
+        <span class="tag g">Subqueries</span><span class="tag g">VIEWs</span>
+        <span class="tag g">Indexes</span><span class="tag g">Normalized Tables</span>
+      </div>
+    </div>
+    <div class="sk-cat fu">
+      <div class="sk-cat-t">Tools &amp; Platforms</div>
+      <div class="sk-tags">
+        <span class="tag o">Git</span><span class="tag o">GitHub</span><span class="tag o">VS Code</span>
+        <span class="tag o">Vercel</span><span class="tag o">MySQL Workbench</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="projects">
+  <div class="s-head fu"><span class="s-num">03</span><h2 class="s-title">Projects</h2><div class="s-line"></div></div>
+  <div class="pr-grid">
+    <div class="pr-card fu">
+      <div class="pr-num">PROJECT // 01</div>
+      <div class="pr-title">Wi-Fi Analyzer Mobile App</div>
+      <div class="pr-type">Final Year Group Project — 2024/2025</div>
+      <div class="pr-desc">Cross-platform mobile app to scan and analyze nearby Wi-Fi networks. Detects SSID, signal strength, and classifies security types (WPA2, WPA3, Open) to identify unsafe connections.</div>
+      <div class="pr-stack"><span class="st">JavaScript</span><span class="st">Networking</span><span class="st">WPA2/WPA3</span><span class="st">Security Classification</span></div>
+    </div>
+    <div class="pr-card fu">
+      <div class="pr-num">PROJECT // 02</div>
+      <div class="pr-title">Personal Portfolio Website</div>
+      <div class="pr-type">Personal Project — 2025</div>
+      <div class="pr-desc">Fully responsive portfolio website built from scratch using HTML5 and CSS3 — no frameworks. Deployed live on Vercel with CSS animations and mobile-first layout.</div>
+      <div class="pr-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">Vercel</span><span class="st">Responsive Design</span></div>
+    </div>
+    <div class="pr-card fu">
+      <div class="pr-num">PROJECT // 03</div>
+      <div class="pr-title">Job Application Tracker</div>
+      <div class="pr-type">Personal Project — 2025</div>
+      <div class="pr-desc">Relational database system in MySQL to track job applications and interview rounds. 4 normalized tables with foreign keys, JOINs, GROUP BY, Subqueries, VIEWs, and Indexes.</div>
+      <div class="pr-stack"><span class="st">MySQL</span><span class="st">SQL JOINs</span><span class="st">Subqueries</span><span class="st">Views</span><span class="st">Indexes</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="certifications">
+  <div class="s-head fu"><span class="s-num">04</span><h2 class="s-title">Certifications</h2><div class="s-line"></div></div>
+  <div class="cert-grid">
+    <div class="cert fu"><div class="cert-ico">🐍</div><div><div class="cert-name">Python for Data Science</div><div class="cert-iss">NPTEL — Elite Certificate</div></div></div>
+    <div class="cert fu"><div class="cert-ico">🧠</div><div><div class="cert-name">Deep Learning</div><div class="cert-iss">NVIDIA</div></div></div>
+    <div class="cert fu"><div class="cert-ico">🌐</div><div><div class="cert-name">Basics of Computer Networks</div><div class="cert-iss">Great Learning</div></div></div>
+  </div>
+</div>
+
+<div class="wrap" id="contact">
+  <div class="s-head fu"><span class="s-num">05</span><h2 class="s-title">Contact</h2><div class="s-line"></div></div>
+  <div class="ct-grid">
+    <div class="ct-text fu">
+      <h3>Let's Connect</h3>
+      <p>I'm actively looking for opportunities in IT &amp; Security Systems and Web Development. If you have a role that fits, feel free to reach out!</p>
+      <br/>
+      <p style="color:var(--dim);font-size:13px;">Based in Thanjavur, Tamil Nadu, India.<br/>Open to relocation — especially UAE / Dubai roles.</p>
+    </div>
+    <div class="ct-links fu">
+      <a href="mailto:hamdhan2710@gmail.com" class="ct-item">
+        <span style="font-size:20px">✉️</span>
+        <div><span class="ct-lbl">Email</span><span class="ct-val">hamdhan2710@gmail.com</span></div>
+      </a>
+      <a href="tel:+917339495885" class="ct-item">
+        <span style="font-size:20px">📞</span>
+        <div><span class="ct-lbl">Phone</span><span class="ct-val">+91 7339495885</span></div>
+      </a>
+      <a href="https://linkedin.com/in/ahamed-hamdhan-13bb2b295" target="_blank" class="ct-item">
+        <span style="font-size:20px">💼</span>
+        <div><span class="ct-lbl">LinkedIn</span><span class="ct-val">ahamed-hamdhan</span></div>
+      </a>
+      <a href="https://github.com/Hamdhan-github" target="_blank" class="ct-item">
+        <span style="font-size:20px">🐙</span>
+        <div><span class="ct-lbl">GitHub</span><span class="ct-val">Hamdhan-github</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>&lt;/&gt; Designed &amp; Built by Ahamed Hamdhan &nbsp;///&nbsp; 2025</footer>
+
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+function ac(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(ac)}ac();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px'});
+});
+const fus=document.querySelectorAll('.fu');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.15});
+fus.forEach(el=>obs.observe(el));
+const secs=document.querySelectorAll('[id]');
+const nls=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let active='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)active=s.id});
+  nls.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+active?'var(--cyan)':''});
+});
+</script>
+</body>
+</html>
